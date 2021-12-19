@@ -1,0 +1,40 @@
+{
+  "quizzes": [
+    {
+      "name": "Can You Pass The Sociopath Test? ",
+      "id": 10,
+      "description": "This 15 question quiz is based on a real psychological test that analyzes levels of sociopathy and narcissism. Will you pass?",
+      "success_score":  20,      
+      "questions": [
+        {
+          "question": "Random question 1",
+          "answers": [
+            "answer 1",
+            "answer 2",
+            "answer 3"
+          ],
+          "correct": 2,
+          "points": 8
+        },
+        {
+          "question": "Random question 2",
+          "answers": [
+            "answer 4",
+            "answer 5",
+            "answer 6"
+          ],
+          "correct": 0,
+          "points": 10
+        }
+      ],
+      "image": "quiz1.jfif"
+    },
+    {
+      "name": "Can You Pass The Sociopath Test? ",
+      "description": "This 15 question quiz is based on a real psychological test that analyzes levels of sociopathy and narcissism. Will you pass?",
+      "success_score": 15,
+      "questions": [],
+      "image": "no"
+    }
+  ]
+}

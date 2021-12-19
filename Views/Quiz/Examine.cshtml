@@ -1,0 +1,115 @@
+﻿@{
+    var quiz = (Quiz)ViewData["quiz"];
+    int counter = 0;
+}
+<div class="container">
+    <form action="@Href("~/quiz/Submit/quiz")" method="get">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-interval="false" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <input hidden type="number" value="@quiz.id" name="quizid" />
+                <div class="carousel-item active">
+                    <div class="card border-dark mb-3" style="margin:5%;">
+                        <div class="card-header">Question 1</div>
+                        <div class="card-body text-dark">
+                            <h5 class="card-title">@quiz.questions[0].question</h5>
+                            @foreach (string answer in quiz.questions[0].answers)
+                            {
+                                <div class="form-check form-check">
+                                    <input class="form-check-input" name="@quiz.questions[0].question" type="radio" value="@answer">
+                                    <label class="form-check-label" for="inlineCheckbox1">@answer</label>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                @for (int i = 2; i <= quiz.questions.Count; i++)
+                {
+                    <div class="carousel-item">
+                        <div class="card border-dark mb-3" style="margin:5%;">
+                            <div class="card-header">Question @i</div>
+                            <div class="card-body text-dark">
+                                <h5 class="card-title">@quiz.questions[i - 1].question</h5>
+                                @foreach (string answer in quiz.questions[i - 1].answers)
+                                {
+                                    <div class="form-check form-check">
+                                        <input class="form-check-input" name="@quiz.questions[i - 1].question" type="radio" value="@answer">
+                                        <label class="form-check-label" for="inlineCheckbox1">@answer</label>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+                <div class="carousel-item">
+                    <div class="card border-dark mb-3" style="margin:5%;">
+                        <div class="card-header">Are you finished</div>
+                        <div class="card-body text-dark">
+                            <h5 class="card-title">Submit the exam</h5>
+                            <div class="d-grid gap-2" style="margin-left: 30%;margin-right: 30%;">
+                                <button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#resultModal">Click here to submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="d-grid gap-2" style="margin-left: 30%;margin-right: 30%;margin-top:10%;">
+                <button class="btn btn-primary" type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="prev">Previous question</button>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="d-grid gap-2" style="margin-left: 30%;margin-right: 30%;margin-top:10%;" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="next">
+                <button class="btn btn-primary" type="button">Next question</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="resultModal" tabindex="-1" aria-labelledby="resultModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="resultModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div id="resultbody" class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $("form").submit(function (event) {
+    event.preventDefault();
+    let post_url = $(this).attr("action"); //get form action url
+    let request_method = $(this).attr("method"); //get form GET/POST method
+    let form_data = $(this).serialize(); //Encode form elements for submission
+    $.ajax({
+        url: post_url,
+        type: request_method,
+        data: form_data
+    }).done(function (response) {
+        let result = JSON.parse(response);
+        let mess = "";
+        if (result.success)
+            mess = "Congratulations you have passed this test";
+        else
+            mess = "Unfortunatly you did not pass the test";
+        $("#resultbody").html(mess + " with a score of " + result.grade);
+    }).fail(function (error) {
+        alert(error);
+        console.log(error);
+    });
+});
+</script>

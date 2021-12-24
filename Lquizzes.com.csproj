@@ -154,6 +154,10 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\quizzes\quiz2.jpg" />
+    <Content Include="images\quizzes\quiz3.jpg" />
+    <Content Include="images\quizzes\quiz4.jpg" />
+    <Content Include="images\quizzes\quiz5.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -288,8 +292,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Quiz\Examine.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />

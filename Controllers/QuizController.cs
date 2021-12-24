@@ -41,6 +41,7 @@ namespace Lquizzes.com.Controllers
             result result = new result();
             result.success = score >= quiz.success_score;
             result.grade = score;
+            result.success_score = quiz.success_score;
             return Json(JsonConvert.SerializeObject(result), JsonRequestBehavior.AllowGet);
         }
     }

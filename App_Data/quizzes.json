@@ -1,10 +1,10 @@
 {
   "quizzes": [
     {
-      "name": "Can You Pass The Sociopath Test? ",
+      "name": "Random quiz 1",
       "id": 10,
-      "description": "This 15 question quiz is based on a real psychological test that analyzes levels of sociopathy and narcissism. Will you pass?",
-      "success_score":  20,      
+      "description": "Some Description",
+      "success_score": 18,
       "questions": [
         {
           "question": "Random question 1",
@@ -30,11 +30,91 @@
       "image": "quiz1.jfif"
     },
     {
-      "name": "Can You Pass The Sociopath Test? ",
-      "description": "This 15 question quiz is based on a real psychological test that analyzes levels of sociopathy and narcissism. Will you pass?",
+      "name": "Random quiz 2",
+      "id": 15,
+      "description": "Some Description",
       "success_score": 15,
-      "questions": [],
-      "image": "no"
+      "questions": [
+        {
+          "question": "Random question 1",
+          "answers": [
+            "answer 1",
+            "answer 2",
+            "answer 3"
+          ],
+          "correct": 2,
+          "points": 20
+        },
+        {
+          "question": "Random question 2",
+          "answers": [
+            "answer 4",
+            "answer 5",
+            "answer 6"
+          ],
+          "correct": 0,
+          "points": 15
+        }
+      ],
+      "image": "quiz2.jpg"
+    },
+    {
+      "name": "Random quiz 3",
+      "id": 12,
+      "description": "Some Description",
+      "success_score": 20,
+      "questions": [
+        {
+          "question": "Random question 1",
+          "answers": [
+            "answer 1",
+            "answer 2",
+            "answer 3"
+          ],
+          "correct": 2,
+          "points": 8
+        },
+        {
+          "question": "Random question 2",
+          "answers": [
+            "answer 4",
+            "answer 5",
+            "answer 6"
+          ],
+          "correct": 0,
+          "points": 10
+        }
+      ],
+      "image": "quiz3.jpg"
+    },
+    {
+      "name": "Random quiz 4",
+      "id": 13,
+      "description": "Some Description",
+      "success_score": 20,
+      "questions": [
+        {
+          "question": "Random question 1",
+          "answers": [
+            "answer 1",
+            "answer 2",
+            "answer 3"
+          ],
+          "correct": 2,
+          "points": 10
+        },
+        {
+          "question": "Random question 2",
+          "answers": [
+            "answer 4",
+            "answer 5",
+            "answer 6"
+          ],
+          "correct": 0,
+          "points": 10
+        }
+      ],
+      "image": "quiz4.jpg"
     }
   ]
 }

@@ -1,6 +1,5 @@
 ﻿@{
     var quiz = (Quiz)ViewData["quiz"];
-    int counter = 0;
 }
 <div class="container">
     <form action="@Href("~/quiz/Submit/quiz")" method="get">
@@ -76,15 +75,15 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="resultModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="resultModalLabel">Your result</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div id="resultbody" class="modal-body">
                 ...
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Dismiss</button>
+                <button type="button" onclick="window.location.href = '@Href("~/")'" class="btn btn-primary">back to home page</button>
             </div>
         </div>
     </div>
@@ -106,7 +105,7 @@
             mess = "Congratulations you have passed this test";
         else
             mess = "Unfortunatly you did not pass the test";
-        $("#resultbody").html(mess + " with a score of " + result.grade);
+        $("#resultbody").html(mess + " with a score of " + result.grade + "/" + result.success_score);
     }).fail(function (error) {
         alert(error);
         console.log(error);

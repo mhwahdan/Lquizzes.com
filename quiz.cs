@@ -48,5 +48,6 @@ namespace Lquizzes.com
     {
         public Boolean success;
         public int grade;
+        public int success_score;
     }
 }

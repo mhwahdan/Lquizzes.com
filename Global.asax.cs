@@ -14,9 +14,11 @@ namespace Lquizzes.com
         public static List<Quiz> quizzes;
         protected void Application_Start()
         {
+            Quiz temp;
             string path = Server.MapPath("~/App_Data/quizzes.json");
             string jsontext = System.IO.File.ReadAllText(path);
             quizzes = JsonConvert.DeserializeObject<Quizzes>(jsontext).quizzes;
+                    
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
